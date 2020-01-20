@@ -4,5 +4,6 @@ exports[`Should render ExpenseDasboard correctly 1`] = `
 <div>
   <[object Object] />
   <[object Object] />
+  <[object Object] />
 </div>
 `;
