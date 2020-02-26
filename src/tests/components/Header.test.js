@@ -1,12 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Header from '../../components/HeaderPage';
+import { HeaderPage } from '../../components/HeaderPage';
+
 
 test('should render Header correctly', () => {
-    const wrapper = shallow(<Header />);
+    const wrapper = shallow(<HeaderPage startLogout={() => { }} />);
     expect(wrapper).toMatchSnapshot();
+});
 
-// const renderer = new ReactShallowRenderer();
-// renderer.render(<Header />);
-// expect(renderer.getRenderOutput()).toMatchSnapshot();
+test('Should call startLogout', () => {
+    const startLogout = jest.fn();
+    const wrapper = shallow(<HeaderPage startLogout={startLogout} />);
+    wrapper.find('button').simulate('click');
+    expect(startLogout).toHaveBeenCalled();
 });
